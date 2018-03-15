@@ -7,7 +7,12 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MairelisArroyo/aws-maiarrbur2.git",
+    "github": "https://github.com/MairelisArroyo/aws-maiarrbur2"
+  },
+  "author": "MairelisArroyo",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
