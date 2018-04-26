@@ -6,24 +6,30 @@ var expect = chai.expect;
 var contacts = require('../contacts.js');
 
 describe('Contacts', function() {
-    beforeEach(function(done) {
-        contacts.removeAll(function(err) {
+beforeEach(function(done) {
+        contacts.connectDb((err) => {
             if (err) {
                 return done(err);
             }
             
-            contacts.add([{
-                name: "pepe",
-                phone: "12345",
-                email: "pepe@pepe.com"
-            }, {
-                name: "luis",
-                phone: "67890",
-                email: "luis@pepe.com"
-            }], done);
+        
+            contacts.removeAll(function(err) {
+                if (err) {
+                    return done(err);
+                }
+                
+                contacts.add([{
+                    name: "pepe",
+                    phone: "12345",
+                    email: "pepe@pepe.com"
+                }, {
+                    name: "luis",
+                    phone: "67890",
+                    email: "luis@pepe.com"
+                }], done);
+            });
         });
-    });
-    
+    });    
     describe('#allContacts()', function() {
         it('should return all contacts', function(done) {
             contacts.allContacts((err, res) => {
